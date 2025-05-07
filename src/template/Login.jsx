@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import axios from "axios";
 import { useForm } from "react-hook-form";
@@ -6,15 +5,14 @@ import { Link, useNavigate } from "react-router-dom";
 
 function Login()
  {
- const {register, handleSubmit} = useForm();
+  const {register, handleSubmit} = useForm();
  const navigate = useNavigate();
-
- function onLogin(data)
- {
-  alert("Logged in ...!!");
-  console.log(data);
-
-  axios.get(`http://192.168.1.5:9199/adminlogin/getEmployee/${data.username}/${data.password}`)
+              <Link to="/dashboard" className="nav-link text-white"></Link>
+  
+  function onLogin(data){
+    
+  console.log(`http://localhost:7777/adminlogin/getEmployee/${data.username}/${data.password}`);
+  axios.get(`http://localhost:7777/adminlogin/getEmployee/${data.username}/${data.password}`)
   .then((res)=>{
     console.log(res.data);
     localStorage.setItem("user", JSON.stringify(res.data));
@@ -60,8 +58,8 @@ function Login()
           </div>
         </div>
       </div>
- )
- 
+    </div>
+  );
 };
 
 export default Login;
