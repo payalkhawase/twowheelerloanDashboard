@@ -12,6 +12,7 @@ import ContactUs from './template/ContactUs'
 import EmiCheck from './template/EmiCheck'
 import Enquiry from './template/Enquiry'
 import Login from './template/Login'
+import Customer from './template/Customer'
 
 function App() {
   const [count, setCount] = useState(0)
@@ -38,6 +39,9 @@ function App() {
               <Route path="/enquiry" element={<Enquiry />} />
               &nbsp;
               <Route path="/login" element={<Login/>} />
+              &nbsp;
+              <Route path="/customer" element={<Customer/>} />
+
       </Routes>
       </div>
       </BrowserRouter>
