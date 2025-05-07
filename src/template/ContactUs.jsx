@@ -3,7 +3,7 @@ import React from 'react'
 function ContactUs() {
   return (
     <div>
-      <h1>ContactUs components</h1>
+      <img src='src/assets/contact-us.jpg' style={{width:'100%'}}/>
     </div>
   )
 }
