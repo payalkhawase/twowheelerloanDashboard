@@ -6,26 +6,6 @@ import { Link, useNavigate } from "react-router-dom";
 
 function Login()
  {
-  const {register, handleSubmit} = useForm();
- const navigate = useNavigate();
-              <Link to="/dashboard" className="nav-link text-white"></Link>
-  
-  function onLogin(data){
-    // e.preventDefault();
-    // if (!(data.username) || !(data.password)) {
-    //   setError('Please enter both username and password');
-    //   return;
-    // }
-    // alert("Logged in ...!!");
-  // console.log(data);
-  console.log(`http://localhost:7777/adminlogin/getEmployee/${data.username}/${data.password}`);
-  axios.get(`http://localhost:7777/adminlogin/getEmployee/${data.username}/${data.password}`)
-import axios from "axios";
-import { useForm } from "react-hook-form";
-import { useNavigate } from "react-router-dom";
-
-function Login()
- {
  const {register, handleSubmit} = useForm();
  const navigate = useNavigate();
 
@@ -80,19 +60,8 @@ function Login()
           </div>
         </div>
       </div>
- }
-
-  return (
-    <div>
-        
-        <form onSubmit={handleSubmit(onLogin)}>
-          Username : <input type="text" {...register('username')} />  <br/><br/>
-          Password : <input type="password" {...register('password')} />  <br/><br/>
-
-          <button type="submit"> LOGIN </button>  <br/><br/>
-        </form>
-    </div>
-  );
+ )
+ 
 };
 
 export default Login;
