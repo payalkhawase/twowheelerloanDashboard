@@ -22,7 +22,7 @@ function Dashboard() {
       { path: '/enquiry/enquiryApproved', component: <EnquiryApproved /> },
       { path: '/enquiry/enquiryRejected', component: <EnquiryRejected /> }
     ]
-   
+
   };
 
   const routesToRender = appRoute[userType] || [];
