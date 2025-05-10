@@ -1,13 +1,3 @@
-// import React,{useState} from 'react'
-// import {useForm,FormProvider} from "react-hook-form"
-// import PersonalDetails from './Enquiry/PersonalDetails'
-// import AddressDetails from './Enquiry/AddressDetails'
-// import AccountDetails from './Enquiry/AccountDetails'
-
-
-// const steps=[PersonalDetails,AddressDetails,AccountDetails];
-
-
 import React,{useEffect,useState} from 'react';
 import { useForm } from 'react-hook-form';
 import axios from 'axios';
