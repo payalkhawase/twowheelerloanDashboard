@@ -1,26 +1,25 @@
+import axios from 'axios';
+
 import React, { useState } from 'react';
-import axios from "axios";
 import { useForm } from "react-hook-form";
 import { Link, useNavigate } from "react-router-dom";
 
-function Login()
- {
-  const {register, handleSubmit} = useForm();
- const navigate = useNavigate();
-              <Link to="/dashboard" className="nav-link text-white"></Link>
-  
-  function onLogin(data){
-    
-  console.log(`http://localhost:7777/adminlogin/getEmployee/${data.username}/${data.password}`);
-  axios.get(`http://localhost:7777/adminlogin/getEmployee/${data.username}/${data.password}`)
-  .then((res)=>{
-    console.log(res.data);
-    localStorage.setItem("user", JSON.stringify(res.data));
-    navigate('/dashboard');
-  })
-  .catch((error)=>console.log(error));
-  };
+function Login() {
+  const { register, handleSubmit } = useForm();
+  const navigate = useNavigate();
+  <Link to="/dashboard" className="nav-link text-white"></Link>
 
+  function onLogin(data) {
+
+    console.log(`http://lenovo:7777/adminlogin/getEmployee/${data.username}/${data.password}`);
+    axios.get(`http://lenovo:7777/adminlogin/getEmployee/${data.username}/${data.password}`)
+      .then((res) => {
+        console.log(res.data);
+        localStorage.setItem("user", JSON.stringify(res.data));
+        navigate('/dashboard');
+      })
+      .catch((error) => console.log(error));
+    }
   return (
     <div className="container mt-5">
       <div className="row justify-content-center">
@@ -48,7 +47,7 @@ function Login()
                     className="form-control"
                     id="password"
                     // value={password}
-                    {...register('password')} 
+                    {...register('password')}
                     placeholder="Password"
                   />
                 </div>
@@ -58,6 +57,8 @@ function Login()
           </div>
         </div>
       </div>
+
+  
     </div>
   );
 };
