@@ -8,51 +8,6 @@
 // const steps=[PersonalDetails,AddressDetails,AccountDetails];
 
 
-// function Enquiry()
-
-// {
-
-//   const[currentStep,setCurrentStep]=useState(0);
-//   const methods=useForm({mode:"onTouched"});
-//   const onSubmit=(data)=>{
-//     console.log("Final data",data);
-//   };
-
-//   const CurrentStepComponent=steps[currentStep];
-
-//   return (
-//     <div>
-//       <h1>PersonalDetails</h1>
-//       <FormProvider {...methods}>
-//       <form onSubmit={methods.handleSubmit(onSubmit)}>
-//         <CurrentStepComponent/>
-
-//     <div className="mt-4 flex gap-2">
-//       {currentStep > 0 && (
-//         <button type='button' onClick={()=>setCurrentStep(currentStep-1)}>
-//           Back
-//         </button>
-//       )}
-//       {currentStep <steps.length-1 ? (
-//         <button type='button' onClick={()=>setCurrentStep(currentStep+1)}>
-//           Next
-//         </button>
-//       ) : (
-//         <button type='submit'>Submit</button>
-//       )}
-      
-      
-//     </div>
-    
-//     </form>
-//     </FormProvider>
-//     </div>
-//   )
-// }
-
-// export default Enquiry
-
-
 import React,{useEffect,useState} from 'react';
 import { useForm } from 'react-hook-form';
 import axios from 'axios';
