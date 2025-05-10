@@ -92,7 +92,7 @@ function Sidenav() {
             ))}
 
             <li className="nav-item">
-              <Link to="/" onClick={logout} className="nav-link text-white"><i class="bi bi-box-arrow-right"></i> Logout</Link>
+              <Link to="/" onClick={logout} className="nav-link text-white"><i className="bi bi-box-arrow-right"></i> Logout</Link>
             </li>
           </ul>
         </div>
