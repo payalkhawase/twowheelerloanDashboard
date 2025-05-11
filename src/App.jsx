@@ -7,6 +7,7 @@ import "../node_modules/bootstrap-icons/font/bootstrap-icons.css"
 import "bootstrap/dist/js/bootstrap.bundle.min.js"
 import "../node_modules/bootstrap/dist/css/bootstrap.min.css"
 import { BrowserRouter, Route, Routes } from 'react-router-dom'
+//import Customer from './template/Customer'
 import Header from './template/Header.jsx'
 import Home from './template/Home.jsx'
 import AboutUs from './template/AboutUs.jsx'
@@ -20,6 +21,8 @@ import EnquiryApproved from './enquiry/EnquiryApproved.jsx'
 import EnquiryRejected from './enquiry/EnquiryRejected.jsx'
 import ForwardOe from './oe/ForwardOe.jsx'
 import CustomerVerified from './oe/CustomerVerified.jsx'
+
+
 
 
 function App() {
@@ -48,12 +51,19 @@ function App() {
               <Route path="/enquiry" element={<Enquiry />} />
               &nbsp;
               <Route path="/login" element={<Login/>} />
+
+              &nbsp;
+              {/* //<Route path="/customer" element={<Customer/>} /> */}
+
               <Route path="/dashboard" element={<Dashboard/>} />
               <Route path="/enquiry/enquiryPending" element={<EnquiryPending/>} />
               <Route path="/enquiry/enquiryApproved" element={<EnquiryApproved/>} />
               <Route path="/enquiry/enquiryRejected" element={<EnquiryRejected/>} />
               <Route path="/oe/forwordoe" element={<ForwardOe/>} />
               <Route path="/oe/verifiedlist" element={<CustomerVerified/>} />
+
+
+
       </Routes>
       </div>
       {/* <Dashboard></Dashboard> */}

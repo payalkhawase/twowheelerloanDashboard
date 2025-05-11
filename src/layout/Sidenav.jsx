@@ -1,8 +1,12 @@
 import React from 'react'
-
 import Page from '../layout/Page';
+
+// import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom"
+// import { Collapse } from 'react-bootstrap';
+
 import { BrowserRouter as Router, Routes, Route, Link, useNavigate } from "react-router-dom";
 import { Collapse } from "react-bootstrap";
+
 import EnquiryPending from '../enquiry/EnquiryPending';
 import EnquiryApproved from '../enquiry/EnquiryApproved';
 import EnquiryRejected from '../enquiry/EnquiryRejected';

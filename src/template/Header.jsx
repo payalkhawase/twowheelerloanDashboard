@@ -16,6 +16,7 @@ function Header() {
           <Link className='btn btn-dark fs-5 me-2' to={'/emicheck'} >Emi-Check</Link>
           <Link className='btn btn-dark fs-5 me-2' to={'/enquiry'} >Enquiry</Link>
           <Link className='btn btn-dark fs-5 me-2' to={'/login'} >Login</Link>
+          {/* <Link className='btn btn-dark fs-5 me-2' to={'/customer'} >Customer</Link> */}
         </div>
         </div>
       )
