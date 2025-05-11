@@ -18,6 +18,8 @@ import Dashboard from './template/Dashboard.jsx'
 import EnquiryPending from './enquiry/EnquiryPending.jsx'
 import EnquiryApproved from './enquiry/EnquiryApproved.jsx'
 import EnquiryRejected from './enquiry/EnquiryRejected.jsx'
+import ForwardOe from './oe/ForwardOe.jsx'
+import CustomerVerified from './oe/CustomerVerified.jsx'
 
 
 function App() {
@@ -50,6 +52,8 @@ function App() {
               <Route path="/enquiry/enquiryPending" element={<EnquiryPending/>} />
               <Route path="/enquiry/enquiryApproved" element={<EnquiryApproved/>} />
               <Route path="/enquiry/enquiryRejected" element={<EnquiryRejected/>} />
+              <Route path="/oe/forwordoe" element={<ForwardOe/>} />
+              <Route path="/oe/verifiedlist" element={<CustomerVerified/>} />
       </Routes>
       </div>
       {/* <Dashboard></Dashboard> */}

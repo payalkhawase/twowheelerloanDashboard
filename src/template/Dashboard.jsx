@@ -4,6 +4,8 @@ import EnquiryRejected from '../enquiry/EnquiryRejected';
 import EnquiryPending from '../enquiry/EnquiryPending';
 import EnquiryApproved from '../enquiry/EnquiryApproved';
 import { Route, Routes } from 'react-router-dom';
+import ForwardOe from '../oe/ForwardOe';
+import CustomerVerified from '../oe/CustomerVerified';
 
 function Dashboard() {
 
@@ -18,11 +20,17 @@ function Dashboard() {
       { path: '/enquiry/enquiryApproved', component: <EnquiryApproved /> }
     ],
     CRM: [
-      { path: '/enquiry/enquiryPending', component: <EnquiryPending /> },
+      { path: '/enquiry/enquiryPending', component: <EnquiryPending/> },
       { path: '/enquiry/enquiryApproved', component: <EnquiryApproved /> },
-      { path: '/enquiry/enquiryRejected', component: <EnquiryRejected /> }
+      { path: '/enquiry/enquiryRejected', component: <EnquiryRejected/> }
+
     ],
-   
+    OE:[
+      { path: '/oe/forwordoe', component: <ForwardOe/> },
+      { path: '/oe/verifiedlist', component: <CustomerVerified /> }
+    ]
+
+
   };
 
   const routesToRender = appRoute[userType] || [];

@@ -40,6 +40,16 @@ function Sidenav() {
           { label: "Rejected Enquiry", to: "/enquiry/enquiryRejected" }
         ]
       }
+    ],
+    OE: [
+      {
+        header: "operationExecutive",
+        links: [
+          { label: "forwordoe status", to: "/oe/forwordoe" },
+          { label: "Verified customer", to: "/oe/verifiedlist" }
+         
+        ]
+      }
     ]
   };
 

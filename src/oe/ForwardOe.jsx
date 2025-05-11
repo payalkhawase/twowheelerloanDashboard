@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import Sidenav from '../layout/Sidenav';
 
-function EnquiryPending() {
+function ForwardOe() {
   const [enquiry, setEnquiry] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
@@ -71,7 +71,7 @@ function EnquiryPending() {
               </tr>
             </thead>
             <tbody>
-              {enquiry.map((item, index) => 
+              {enquiry.map((item, index) => (
                 <tr key={item.customerId || index}>
                   <td>{item.customerId || index + 1}</td>
                   <td>{item.firstname}</td>
@@ -95,7 +95,7 @@ function EnquiryPending() {
                     </button>
                   </td>
                 </tr>
-              )}
+              ))}
             </tbody>
           </table>
         )}
@@ -104,4 +104,4 @@ function EnquiryPending() {
   );
 }
 
-export default EnquiryPending
+export default ForwardOe;
