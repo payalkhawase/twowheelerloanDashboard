@@ -5,9 +5,10 @@ import EnquiryPending from '../enquiry/EnquiryPending';
 import EnquiryApproved from '../enquiry/EnquiryApproved';
 import { Route, Routes } from 'react-router-dom';
 import ForwardOe from '../oe/ForwardOe';
-import CustomerVerified from '../oe/CustomerVerified';
+import CustomerVerified from '../CM/CustomerVerified';
 import SubmittedCustomer from '../oe/SubmittedCustomer';
 import VerifyDetails from '../oe/VerifyDetails';
+import LoanSanction from '../CM/LoanSanction';
 
 function Dashboard() {
 
@@ -29,11 +30,13 @@ function Dashboard() {
     ],
     OE:[
       { path: '/oe/forwordoe', component: <ForwardOe/> },
-      { path: '/oe/verifiedlist', component: <CustomerVerified /> },
       { path: '/oe/submittedlist', component: <SubmittedCustomer /> },
       { path:'/oe/verifydetails/:customerId',component: <VerifyDetails/>}
+    ],
+    CM:[
+        { path: '/cm/verifiedlist', component: <CustomerVerified /> },
+        {path:'/cm/sanctionloan/:customerId',component:<LoanSanction/>}
     ]
-
 
   };
 

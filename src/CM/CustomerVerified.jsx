@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
-import { useParams } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 import Sidenav from '../layout/Sidenav';
 
 function CustomerVerified() {
@@ -61,16 +61,7 @@ function CustomerVerified() {
                 <th>On-Road Price</th>
                 <th>Required Tenure</th>
                 <th>Interest Type</th>
-                <th>Personal Documents</th>
-                <th>Dependent Information</th>
-                <th>Customer Address</th>
-                <th>CIBIL Score</th>
-                <th>Account Details</th>
-                <th>Guarantor Details</th>
-                <th>Loan Disbursement</th>
-                <th>Ledger</th>
-                <th>Sanction Letter</th>
-                <th>Customer Verification</th>
+                <th>Action</th>
               </tr>
             </thead>
             <tbody>
@@ -90,22 +81,7 @@ function CustomerVerified() {
                   <td>{customer.onRoadPrice}</td>
                   <td>{customer.requiredTenure}</td>
                   <td>{customer.interestType || "Compound Interest"}</td>
-                  <td>{customer.personalDoc?.documentType || "N/A"}</td>
-                  <td>{customer.depInfo?.dependentName || "N/A"}</td>
-                  <td>{customer.custAddr?.address || "N/A"}</td>
-                  <td>{customer.cibil?.score || "N/A"}</td>
-                  <td>{customer.acdetails?.accountNumber || "N/A"}</td>
-                  <td>{customer.gdetails?.guarantorName || "N/A"}</td>
-                  <td>{customer.loandisburst?.disbursementDate || "N/A"}</td>
-                  <td>
-                    {customer.led?.length > 0
-                      ? customer.led.map((ledger, idx) => (
-                          <span key={idx}>{ledger.transactionDetails}{idx < customer.led.length - 1 ? ', ' : ''}</span>
-                        ))
-                      : "N/A"}
-                  </td>
-                  <td>{customer.sanctionletter?.sanctionDate || "N/A"}</td>
-                  <td>{customer.custVerification?.verificationStatus || "N/A"}</td>
+                 <Link to={`/cm/sanctionloan/${customer.customerId}`}  className="btn btn-sm btn-primary me-2">LoanSanction</Link>
                 </tr>
               ))}
             </tbody>
