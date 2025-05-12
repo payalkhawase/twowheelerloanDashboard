@@ -6,7 +6,7 @@ function EnquiryApproved() {
   const [enquiry, setEnquiry] = useState([]);
 
   function getList() {
-    axios.get("http://localhost:7777/enq/ApprovedEnquiry")
+    axios.get("http://localhost:9191/enq/ApprovedEnquiry")
       .then(res => {
         setEnquiry(res.data);
       })
@@ -58,6 +58,7 @@ function EnquiryApproved() {
                 <td>
                   <button className="btn btn-sm btn-primary me-2">Edit</button>
                   <button className="btn btn-sm btn-danger">Delete</button>
+                  <button className="btn btn-sm btn-success" >Apply For Loan</button>
                 </td>
               </tr>
             ))}

@@ -71,7 +71,8 @@ function EnquiryPending() {
               </tr>
             </thead>
             <tbody>
-              {enquiry.map((item, index) => (
+
+              {enquiry.map((item, index) => 
                 <tr key={item.customerId || index}>
                   <td>{item.customerId || index + 1}</td>
                   <td>{item.firstname}</td>
@@ -95,7 +96,7 @@ function EnquiryPending() {
                     </button>
                   </td>
                 </tr>
-              ))}
+              )}
             </tbody>
           </table>
         )}
@@ -104,4 +105,5 @@ function EnquiryPending() {
   );
 }
 
-export default EnquiryPending;
+
+export default EnquiryPending

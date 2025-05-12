@@ -6,6 +6,10 @@ import EnquiryApproved from '../enquiry/EnquiryApproved';
 import { Route, Routes } from 'react-router-dom';
 import ForwardOe from '../oe/ForwardOe';
 
+import CustomerVerified from '../oe/CustomerVerified';
+import SubmittedCustomer from '../oe/SubmittedCustomer';
+import VerifyDetails from '../oe/VerifyDetails';
+
 function Dashboard() {
 
   const userJson = localStorage.getItem("user");
@@ -19,13 +23,19 @@ function Dashboard() {
       { path: '/enquiry/enquiryApproved', component: <EnquiryApproved /> }
     ],
     CRM: [
-      { path: '/enquiry/enquiryPending', component: <EnquiryPending /> },
+      { path: '/enquiry/enquiryPending', component: <EnquiryPending/> },
       { path: '/enquiry/enquiryApproved', component: <EnquiryApproved /> },
-      { path: '/enquiry/enquiryRejected', component: <EnquiryRejected /> }
+
+      { path: '/enquiry/enquiryRejected', component: <EnquiryRejected/> }
+
     ],
     OE:[
-      { path:'/opex', component:<ForwardOe/> }
+      { path: '/oe/forwordoe', component: <ForwardOe/> },
+      { path: '/oe/verifiedlist', component: <CustomerVerified /> },
+      { path: '/oe/submittedlist', component: <SubmittedCustomer /> },
+      { path:'/oe/verifydetails/:customerId',component: <VerifyDetails/>}
     ]
+
 
   };
 
