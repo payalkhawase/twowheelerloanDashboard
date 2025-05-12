@@ -1,92 +1,62 @@
-import React, { useState } from "react";
 import axios from 'axios';
-import { useNavigate } from "react-router-dom";
+import React, { useState } from 'react';
+import { useForm } from "react-hook-form";
+import { Link, useNavigate } from "react-router-dom";
 
-function Login(data) {
-  
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
+function Login() {
+  const { register, handleSubmit } = useForm();
   const navigate = useNavigate();
+  <Link to="/dashboard" className="nav-link text-white"></Link>
 
-  const handleLogin = (e) => {
-    e.preventDefault();
-    // Placeholder for actual login logic
-    console.log("Login details:", { email, password });
+  function onLogin(data) {
 
-    alert(`Email: ${email}`);
-
-    alert("Logged in..!");
-    console.log(data);
-
-    if(`Email: ${email}!=null`)
-    {
-    axios.get(`http://localhost:9191/enq/showdata/${email}/${password}`)
-    .then((res)=>{
-    console.log(res.data);
-    localStorage.setItem("user", JSON.stringify(res.data));
-    navigate('/dashboard');
-    })
-
-    .catch((error)=>console.log(error))
-  }
-  else{
-    alert("Something wen wrong...!!")
-  }
-  
-    
-
-}
-  
-
+    console.log(`http://localhost:7777/adminlogin/getEmployee/${data.username}/${data.password}`);
+    axios.get(`http://localhost:7777/adminlogin/getEmployee/${data.username}/${data.password}`)
+      .then((res) => {
+        console.log(res.data);
+        localStorage.setItem("user", JSON.stringify(res.data));
+        navigate('/dashboard');
+      })
+      .catch((error) => console.log(error));
+    }
   return (
-    <div className="flex h-screen" >
-    {/* Side nav with background image */}
-    <div className="w-1/2 bg-cover bg-center hidden md:block"
-    style={{
-      backgroundImage: `url('src/assets/image.png')`,
-    }}>
+    <div className="container mt-5">
+      <div className="row justify-content-center">
+        <div className="col-md-6">
+          <div className="card shadow">
+            <div className="card-body">
+              <h3 className="card-title text-center mb-4">Login</h3>
+              {/* {error && <div className="alert alert-danger">{error}</div>} */}
+              <form onSubmit={handleSubmit(onLogin)}>
+                <div className="mb-3">
+                  <label htmlFor="username" className="form-label">Username</label>
+                  <input
+                    type="text"
+                    className="form-control"
+                    id="username"
+                    // value={username}
+                    {...register('username')}
+                    placeholder="Enter Username"
+                  />
+                </div>
+                <div className="mb-3">
+                  <label htmlFor="password" className="form-label">Password</label>
+                  <input
+                    type="password"
+                    className="form-control"
+                    id="password"
+                    // value={password}
+                    {...register('password')}
+                    placeholder="Password"
+                  />
+                </div>
+                <button type="submit" className="btn btn-primary w-100">Login</button>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
-    <div className="min-h-screen bg-gray-100 flex items-center justify-center">
-      <form onSubmit={handleLogin}
-        className="bg-white p-8 rounded-xl shadow-md w-96"
-      >
-        <h2 className="text-2xl font-bold mb-6 text-center text-gray-800">
-          Login
-        </h2>
-         <br></br>
-
-        {/* Username */}
-        <label className="block mb-2 text-gray-700 font-medium">Email:-</label>
-        <input
-          type="text"
-          className="w-full p-2 border border-gray-300 rounded mb-4"
-          placeholder="Enter your username"
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
-          required
-        />
-       <br></br>
-        {/* Password */}
-        <label className="block mb-2 text-gray-700 font-medium">Password:-</label>
-        <input
-          type="password"
-          className="w-full p-2 border border-gray-300 rounded mb-6"
-          placeholder="Enter your password"
-          value={password}
-          onChange={(e) => setPassword(e.target.value)}
-          required
-        />
-        <br></br>
-        {/* Login Button */}
-        <button
-          type="submit"
-          className="w-full bg-blue-600 text-black py-2 rounded hover:bg-blue-700"
-        >
-        Login
-        </button>
-      </form>
-    </div>
-    </div>
-  )
+  );
 };
 export default Login;
