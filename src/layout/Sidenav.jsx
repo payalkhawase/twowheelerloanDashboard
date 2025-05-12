@@ -10,6 +10,9 @@ import { Collapse } from "react-bootstrap";
 import EnquiryPending from '../enquiry/EnquiryPending';
 import EnquiryApproved from '../enquiry/EnquiryApproved';
 import EnquiryRejected from '../enquiry/EnquiryRejected';
+import ForwardOe from '../oe/ForwardOe';
+import CustomerVerified from '../oe/CustomerVerified';
+import SubmittedCustomer from '../oe/SubmittedCustomer';
 function Sidenav() {
   const [openMenu, setOpenMenu] = React.useState(false);
   const userJson = localStorage.getItem("user");
@@ -50,8 +53,8 @@ function Sidenav() {
         header: "operationExecutive",
         links: [
           { label: "forwordoe status", to: "/oe/forwordoe" },
-          { label: "Verified customer", to: "/oe/verifiedlist" }
-         
+          { label: "Verified customer", to: "/oe/verifiedlist" },
+          { label: "Submitted customer", to: "/oe/submittedlist"}
         ]
       }
     ]
@@ -118,6 +121,10 @@ function Sidenav() {
             <Route path="/enquiry/enquiryApproved" element={<EnquiryApproved />} />
             <Route path="/enquiry/enquiryRejected" element={<EnquiryRejected />} />
             {/* <Route path="/template/logout" element={<Logout />} /> */}
+
+            <Route path="/oe/forwordoe" element={<ForwardOe/>} />
+            <Route path="/oe/verifiedlist" element={<CustomerVerified/>} />
+            <Route path="/oe/submittedlist" element={<SubmittedCustomer/>} /> 
           </Routes>
         </div>
       </div>

@@ -6,6 +6,8 @@ import EnquiryApproved from '../enquiry/EnquiryApproved';
 import { Route, Routes } from 'react-router-dom';
 import ForwardOe from '../oe/ForwardOe';
 import CustomerVerified from '../oe/CustomerVerified';
+import SubmittedCustomer from '../oe/SubmittedCustomer';
+import VerifyDetails from '../oe/VerifyDetails';
 
 function Dashboard() {
 
@@ -27,7 +29,9 @@ function Dashboard() {
     ],
     OE:[
       { path: '/oe/forwordoe', component: <ForwardOe/> },
-      { path: '/oe/verifiedlist', component: <CustomerVerified /> }
+      { path: '/oe/verifiedlist', component: <CustomerVerified /> },
+      { path: '/oe/submittedlist', component: <SubmittedCustomer /> },
+      { path:'/oe/verifydetails/:customerId',component: <VerifyDetails/>}
     ]
 
 
