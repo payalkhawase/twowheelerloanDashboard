@@ -62,7 +62,21 @@ function CustomerVerified() {
                 <th>On-Road Price</th>
                 <th>Required Tenure</th>
                 <th>Interest Type</th>
+                <th>Personal Documents</th>
+                <th>Dependant name</th>
+                <th>Address</th>
+                <th>Cibil score</th>
+                <th>Account number</th>
+                <th>Guarantor name</th>
+                <th>Disbursement date</th>
+                <th>Ledger</th>
+                <th>Sanction letter</th>
+                <th>Customer verification</th>
                 <th>Action</th>
+
+
+
+
               </tr>
             </thead>
             <tbody>

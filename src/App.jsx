@@ -21,7 +21,7 @@ import EnquiryApproved from './enquiry/EnquiryApproved.jsx'
 import EnquiryRejected from './enquiry/EnquiryRejected.jsx'
 import ForwardOe from './oe/ForwardOe.jsx'
 
-import CustomerVerified from './oe/CustomerVerified.jsx'
+// import CustomerVerified from './oe/CustomerVerified.jsx'
 import SubmittedCustomer from './oe/SubmittedCustomer.jsx'
 import VerifyDetails from './oe/VerifyDetails.jsx'
 import CustomerVerified from './CM/CustomerVerified.jsx'
