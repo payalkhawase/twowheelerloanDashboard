@@ -11,7 +11,7 @@ import EnquiryPending from '../enquiry/EnquiryPending';
 import EnquiryApproved from '../enquiry/EnquiryApproved';
 import EnquiryRejected from '../enquiry/EnquiryRejected';
 import ForwardOe from '../oe/ForwardOe';
-import CustomerVerified from '../oe/CustomerVerified';
+import CustomerVerified from '../CM/CustomerVerified';
 import SubmittedCustomer from '../oe/SubmittedCustomer';
 function Sidenav() {
   const [openMenu, setOpenMenu] = React.useState(false);
@@ -54,8 +54,17 @@ function Sidenav() {
         header: "operationExecutive",
         links: [
           { label: "forwordoe status", to: "/oe/forwordoe" },
-          { label: "Verified customer", to: "/oe/verifiedlist" },
+         
           { label: "Submitted customer", to: "/oe/submittedlist"}
+        ]
+      }
+    ],
+    CM:[
+      {
+        header:"credit manager",
+        links:[
+             { label: "Verified customer", to: "/cm/verifiedlist" },
+             
         ]
       }
     ]
@@ -124,8 +133,9 @@ function Sidenav() {
             {/* <Route path="/template/logout" element={<Logout />} /> */}
 
             <Route path="/oe/forwordoe" element={<ForwardOe/>} />
-            <Route path="/oe/verifiedlist" element={<CustomerVerified/>} />
             <Route path="/oe/submittedlist" element={<SubmittedCustomer/>} /> 
+
+            <Route path="/cm/verifiedlist" element={<CustomerVerified/>} />
           </Routes>
         </div>
       </div>

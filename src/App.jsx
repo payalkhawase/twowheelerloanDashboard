@@ -24,6 +24,8 @@ import ForwardOe from './oe/ForwardOe.jsx'
 import CustomerVerified from './oe/CustomerVerified.jsx'
 import SubmittedCustomer from './oe/SubmittedCustomer.jsx'
 import VerifyDetails from './oe/VerifyDetails.jsx'
+import CustomerVerified from './CM/CustomerVerified.jsx'
+import LoanSanction from './CM/LoanSanction.jsx'
 
 
 
@@ -64,10 +66,10 @@ function App() {
               <Route path="/enquiry/enquiryRejected" element={<EnquiryRejected/>} />
 
               <Route path="/oe/forwordoe" element={<ForwardOe/>} />
-              <Route path="/oe/verifiedlist" element={<CustomerVerified/>} />
               <Route path="/oe/submittedlist" element={<SubmittedCustomer/>} /> 
               <Route path="/oe/verifydetails/:customerId" element={<VerifyDetails/>} /> 
-
+              <Route path="/cm/verifiedlist" element={<CustomerVerified/>} />
+              <Route path="/cm/sanctionloan/:customerId" element={<LoanSanction/>} />
       </Routes>
       </div>
       {/* <Dashboard></Dashboard> */}

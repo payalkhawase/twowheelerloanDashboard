@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
-import { useParams } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 import Sidenav from '../layout/Sidenav';
 
 function CustomerVerified() {
@@ -62,16 +62,7 @@ function CustomerVerified() {
                 <th>On-Road Price</th>
                 <th>Required Tenure</th>
                 <th>Interest Type</th>
-                <th>Personal Documents</th>
-                <th>Dependent Information</th>
-                <th>Customer Address</th>
-                <th>CIBIL Score</th>
-                <th>Account Details</th>
-                <th>Guarantor Details</th>
-                <th>Loan Disbursement</th>
-                <th>Ledger</th>
-                <th>Sanction Letter</th>
-                <th>Customer Verification</th>
+                <th>Action</th>
               </tr>
             </thead>
             <tbody>
@@ -111,6 +102,7 @@ function CustomerVerified() {
     ? `Date: ${customer.custVerification.verificationDate || new Date().toLocaleString()}, Status: ${customer.custVerification.status || "Verified"}, Remarks: ${customer.custVerification.remarks || "All Docs Verified"}`
     : `Date: ${new Date().toLocaleString()}, Status: N/A, Remarks: N/A`}
 </td>
+                 <Link to={`/cm/sanctionloan/${customer.customerId}`}  className="btn btn-sm btn-primary me-2">LoanSanction</Link>
                 </tr>
               ))}
             </tbody>
