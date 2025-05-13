@@ -1,13 +1,12 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import Sidenav from '../layout/Sidenav';
-import Customer from './customer/Customer';
-import { useNavigate } from 'react-router-dom';
+import Customer from '../enquiry/customer/Customer';
 
 function EnquiryApprovedOE() {
   const [enquiry, setEnquiry] = useState([]);
 
-  const navigate = useNavigate();
+  
   function getList() {
     axios.get("http://localhost:9191/enq/ApprovedEnquiry")
       .then(res => {
@@ -18,15 +17,6 @@ function EnquiryApprovedOE() {
       });
   }
 
-  const [enqId, setEnqId] = useState()
-  const [showCustomer, setShowCustomer] = useState(false)
-
-  function getForm(id)
-  {
-    setShowCustomer(true)
-    setEnqId(id)
-    navigate('/customer/customer', { state: { enqId: id } });
-  }
 
   useEffect(() => {
     getList();
@@ -71,7 +61,7 @@ function EnquiryApprovedOE() {
                 <td>
                   <button className="btn btn-sm btn-primary me-2">Edit</button>
                   <button className="btn btn-sm btn-danger">Delete d</button>
-                  <button className="btn btn-sm btn-danger" onClick={()=>getForm(item.customerId)}>Form</button>
+                  <button className="btn btn-sm btn-danger" >Form</button>
                   {/* {showCustomer && <Customer enqId={enqId} />} */}
 
                 </td>

@@ -1,9 +1,18 @@
 import React from 'react'
+import Page from '../layout/Page';
+
+// import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom"
+// import { Collapse } from 'react-bootstrap';
+
 import { BrowserRouter as Router, Routes, Route, Link, useNavigate } from "react-router-dom";
 import { Collapse } from "react-bootstrap";
+
 import EnquiryPending from '../enquiry/EnquiryPending';
 import EnquiryApproved from '../enquiry/EnquiryApproved';
 import EnquiryRejected from '../enquiry/EnquiryRejected';
+import ForwardOe from '../oe/ForwardOe';
+import CustomerVerified from '../CM/CustomerVerified';
+import SubmittedCustomer from '../oe/SubmittedCustomer';
 function Sidenav() {
   const [openMenu, setOpenMenu] = React.useState(false);
   const userJson = localStorage.getItem("user");
@@ -41,14 +50,23 @@ function Sidenav() {
     ],
     OE: [
       {
-        header: "Enquiry",
+        header: "operationExecutive",
         links: [
-          { label: "Approved Enquiry", to: "/oe/enquiryApprovedOe" },
-          { label: "Rejected Enquiry", to: "/oe/enquiryRejectedOe" }
+          { label: "forwordoe status", to: "/oe/forwordoe" },
+         
+          { label: "Submitted customer", to: "/oe/submittedlist"}
+        ]
+      }
+    ],
+    CM:[
+      {
+        header:"credit manager",
+        links:[
+             { label: "Verified customer", to: "/cm/verifiedlist" },
+             
         ]
       }
     ]
-    
   };
 
   function logout()
@@ -100,7 +118,7 @@ function Sidenav() {
             ))}
 
             <li className="nav-item">
-              <Link to="/" onClick={logout} className="nav-link text-white"><i class="bi bi-box-arrow-right"></i> Logout</Link>
+              <Link to="/" onClick={logout} className="nav-link text-white"><i className="bi bi-box-arrow-right"></i> Logout</Link>
             </li>
           </ul>
         </div>
@@ -112,6 +130,11 @@ function Sidenav() {
             <Route path="/enquiry/enquiryApproved" element={<EnquiryApproved />} />
             <Route path="/enquiry/enquiryRejected" element={<EnquiryRejected />} />
             {/* <Route path="/template/logout" element={<Logout />} /> */}
+
+            <Route path="/oe/forwordoe" element={<ForwardOe/>} />
+            <Route path="/oe/submittedlist" element={<SubmittedCustomer/>} /> 
+
+            <Route path="/cm/verifiedlist" element={<CustomerVerified/>} />
           </Routes>
         </div>
       </div>

@@ -56,6 +56,7 @@ const Customer = () => {
   // console.log(firstname);
   const [formData, setFormData] = useState(
     {
+
       data : 
       {
             customerName: '',
@@ -84,8 +85,8 @@ const Customer = () => {
     signature : "",
     bankCheque : "",
     salarySlips : "",
-    IncomeTax : ""
-
+    IncomeTax : "",
+    enqId : enqId
         }
 );
 
@@ -132,6 +133,8 @@ const handleChange = (path, key, event) => {
     }));
   }
 };
+
+
 
 
 

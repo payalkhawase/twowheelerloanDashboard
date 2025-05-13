@@ -1,18 +1,30 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import Sidenav from '../layout/Sidenav';
+import { useNavigate } from 'react-router-dom';
 
 function EnquiryApproved() {
   const [enquiry, setEnquiry] = useState([]);
-
+const navigate = useNavigate();
   function getList() {
-    axios.get("http://localhost:7777/enq/ApprovedEnquiry")
+    axios.get("http://localhost:9191/enq/ApprovedEnquiry")
       .then(res => {
         setEnquiry(res.data);
       })
       .catch(err => {
         console.error("Error fetching data:", err);
       });
+  }
+
+  
+  const [enqId, setEnqId] = useState()
+  const [showCustomer, setShowCustomer] = useState(false)
+
+  function getForm(id)
+  {
+    setShowCustomer(true)
+    setEnqId(id)
+    navigate('/customer/customer', { state: { enqId: id } });
   }
 
   useEffect(() => {
@@ -58,6 +70,7 @@ function EnquiryApproved() {
                 <td>
                   <button className="btn btn-sm btn-primary me-2">Edit</button>
                   <button className="btn btn-sm btn-danger">Delete</button>
+                  <button className="btn btn-sm btn-success" onClick={()=>getForm(item.customerId)}>Apply For Loan</button>
                 </td>
               </tr>
             ))}

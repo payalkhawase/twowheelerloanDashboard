@@ -7,6 +7,7 @@ import "../node_modules/bootstrap-icons/font/bootstrap-icons.css"
 import "bootstrap/dist/js/bootstrap.bundle.min.js"
 import "../node_modules/bootstrap/dist/css/bootstrap.min.css"
 import { BrowserRouter, Route, Routes } from 'react-router-dom'
+//import Customer from './template/Customer'
 import Header from './template/Header.jsx'
 import Home from './template/Home.jsx'
 import AboutUs from './template/AboutUs.jsx'
@@ -18,16 +19,18 @@ import Dashboard from './template/Dashboard.jsx'
 import EnquiryPending from './enquiry/EnquiryPending.jsx'
 import EnquiryApproved from './enquiry/EnquiryApproved.jsx'
 import EnquiryRejected from './enquiry/EnquiryRejected.jsx'
-import Customer from './oe/customer/Customer.jsx'
 import EnquiryApprovedOE from './oe/EnquiryApprovedOE.jsx'
 import EnquiryRejectedOE from './oe/EnquiryRejectedOE.jsx'
+import ForwardOe from './oe/ForwardOe.jsx'
+import SubmittedCustomer from './oe/SubmittedCustomer.jsx'
+import VerifyDetails from './oe/VerifyDetails.jsx'
+import CustomerVerified from './CM/CustomerVerified.jsx'
+import LoanSanction from './CM/LoanSanction.jsx'
+import Customer from './enquiry/customer/Customer.jsx'
 
 
 function App() {
   const [count, setCount] = useState(0)
-
- 
-
   // Your routes here
 
   return (
@@ -53,6 +56,10 @@ function App() {
               <Route path="/enquiry" element={<Enquiry />} />
               &nbsp;
               <Route path="/login" element={<Login/>} />
+
+              &nbsp;
+              {/* //<Route path="/customer" element={<Customer/>} /> */}
+
               <Route path="/dashboard" element={<Dashboard/>} />
               <Route path="/enquiry/enquiryPending" element={<EnquiryPending/>} />
               <Route path="/enquiry/enquiryApproved" element={<EnquiryApproved/>} />
@@ -62,6 +69,11 @@ function App() {
               <Route path="/customer/customer" element={<Customer/>} />
               <Route path='/oe/enquiryApprovedOe' element={<EnquiryApprovedOE/>} />
               <Route path='/oe/enquiryRejectedOe' element={<EnquiryRejectedOE/>}/>
+              <Route path="/oe/forwordoe" element={<ForwardOe/>} />
+              <Route path="/oe/submittedlist" element={<SubmittedCustomer/>} /> 
+              <Route path="/oe/verifydetails/:customerId" element={<VerifyDetails/>} /> 
+              <Route path="/cm/verifiedlist" element={<CustomerVerified/>} />
+              <Route path="/cm/sanctionloan/:customerId" element={<LoanSanction/>} />
       </Routes>
       </div>
       {/* <Dashboard></Dashboard> */}

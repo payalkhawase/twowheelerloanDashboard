@@ -2,6 +2,8 @@ import React from 'react';
 
 const AccountDetails = ({ nextStep, prevStep, handleChange, values }) => {
     return (
+    <div class="container mt-5">
+
         <div className="mb-4">
             <h4>Account Details</h4>
 
@@ -77,6 +79,7 @@ const AccountDetails = ({ nextStep, prevStep, handleChange, values }) => {
 
             <button onClick={prevStep} className="btn btn-secondary me-2">Back</button>
             <button onClick={nextStep} className="btn btn-primary">Next</button>
+        </div>
         </div>
     );
 };

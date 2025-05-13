@@ -2,6 +2,8 @@ import React from "react";
 
 const PersonalDocuments = ({ nextStep, prevStep, handleFileChange, values }) => {
   return (
+    <div class="container mt-5">
+
     <div>
       <h2>Personal Documents</h2>
 
@@ -53,8 +55,9 @@ const PersonalDocuments = ({ nextStep, prevStep, handleFileChange, values }) => 
         <input type="file" className="form-control" onChange={(e) => handleFileChange("IncomeTax", e)}  />
       </div>
 
-      <button onClick={prevStep}>Back</button>
-      <button onClick={nextStep}>Next</button>
+      <button onClick={prevStep} className="btn btn-secondary me-2">Back</button>
+            <button onClick={nextStep} className="btn btn-primary">Next</button>
+    </div>
     </div>
   );
 };

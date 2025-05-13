@@ -11,6 +11,7 @@ const PersonalDetails = ({ nextStep, handleChange, values }) => {
   };
 
   return (
+    <div class="container mt-5">
     <div className="mb-4">
       <h4>Personal Details</h4>
 
@@ -114,8 +115,8 @@ const PersonalDetails = ({ nextStep, handleChange, values }) => {
         <label className="form-label">Interest Type</label>
         <input type="text" className="form-control" {...register('interesType')} defaultValue="Compound Interest" readOnly />
       </div> */}
-      <button type="button" onClick={nextStep}>Next</button>
-    </div>
+      <button type="button" class="btn btn-primary me-2" onClick={nextStep}>Next</button>
+    </div></div>
   );
 };
 

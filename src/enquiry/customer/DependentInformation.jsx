@@ -2,6 +2,8 @@ import React from "react";
 
 const DependentInformation = ({ nextStep, prevStep, handleChange, values }) => {
   return (
+    <div class="container mt-5">
+
     <div>
       <h2>Dependent Information</h2>
 
@@ -69,8 +71,9 @@ const DependentInformation = ({ nextStep, prevStep, handleChange, values }) => {
         />
       </div>
 
-      <button onClick={prevStep}>Back</button>
-      <button onClick={nextStep}>Next</button>
+      <button onClick={prevStep} className="btn btn-secondary me-2">Back</button>
+            <button onClick={nextStep} className="btn btn-primary">Next</button>
+    </div>
     </div>
   );
 };
