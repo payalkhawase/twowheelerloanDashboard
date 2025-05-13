@@ -19,6 +19,7 @@ import Dashboard from './template/Dashboard.jsx'
 import EnquiryPending from './enquiry/EnquiryPending.jsx'
 import EnquiryApproved from './enquiry/EnquiryApproved.jsx'
 import EnquiryRejected from './enquiry/EnquiryRejected.jsx'
+import CustomerList from './enquiry/CustomerList.jsx'
 
 
 
@@ -49,18 +50,19 @@ function App() {
               <Route path="/enquiry" element={<Enquiry />} />
               &nbsp;
               <Route path="/login" element={<Login/>} />
+              
+              {/* <Route path="/customerList" element={<CustomerList/>} /> */}
 
-              &nbsp;
-              {/* //<Route path="/customer" element={<Customer/>} /> */}
-
-              <Route path="/dashboard" element={<Dashboard/>} />
+              <Route path="/dashboard/" element={<Dashboard/>} />
               <Route path="/enquiry/enquiryPending" element={<EnquiryPending/>} />
               <Route path="/enquiry/enquiryApproved" element={<EnquiryApproved/>} />
               <Route path="/enquiry/enquiryRejected" element={<EnquiryRejected/>} />
+              <Route path="enquiry/customerList" element={<CustomerList />} />
+              {/* <Route path="/customer/customerList" element={<CustomerList/>} /> */}
 
       </Routes>
       </div>
-      {/* <Dashboard></Dashboard> */}
+      
 
       </BrowserRouter>
     </>

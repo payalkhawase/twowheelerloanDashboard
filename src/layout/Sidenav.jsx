@@ -1,9 +1,5 @@
 import React from 'react'
 import Page from '../layout/Page';
-
-// import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom"
-// import { Collapse } from 'react-bootstrap';
-
 import { BrowserRouter as Router, Routes, Route, Link, useNavigate } from "react-router-dom";
 import { Collapse } from "react-bootstrap";
 
@@ -27,6 +23,12 @@ function Sidenav() {
           { label: "Rejected Enquiry", to: "/enquiry/enquiryRejected" }
         ]
       },
+      // {
+      //   header: "Customer", 
+      //   links: [
+      //     { label: "CustomerList", to: "/enquiry/customerList" } 
+      //   ]
+      // },
       {
         header: "Employee",
         links: [
@@ -43,7 +45,8 @@ function Sidenav() {
           { label: "Approved Enquiry", to: "/enquiry/enquiryApproved" },
           { label: "Rejected Enquiry", to: "/enquiry/enquiryRejected" }
         ]
-      }
+      },
+      
     ]
   };
 
@@ -101,7 +104,7 @@ function Sidenav() {
           </ul>
         </div>
 
-        {/* Content */}
+
         <div className="flex-grow-1 p-3">
           <Routes>
             <Route path="/enquiry/enquiryPending" element={<EnquiryPending />} />
