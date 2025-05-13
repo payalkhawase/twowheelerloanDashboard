@@ -81,8 +81,9 @@ function SubmittedCustomer() {
                   <td>{customer.onRoadPrice}</td>
                   <td>{customer.requiredTenure}</td>
                   <td>{customer.interestType || "Compound Interest"}</td>
-                 
+                 <td>
                  <Link to={`/oe/verifydetails/${customer.customerId}`}  className="btn btn-sm btn-primary me-2">Verify</Link>
+                 </td>
                 </tr>
               ))}
             </tbody>

@@ -10,11 +10,12 @@ function CustomerVerified() {
   const [error, setError] = useState(null);
 
   const getCustomer = () => {
-    console.log("Fetching customer for ID:", customerId);
 
     // Fetch all verified customers (or replace with specific endpoint if needed)
-    axios.get(`http://localhost:9194/apploan/getCustomerVerified`)
+    axios.get("http://localhost:9194/apploan/getVerifiedCustomers")
+    
       .then(res => {
+
         console.log("API Response:", res.data);
         if (Array.isArray(res.data)) {
           setCustomers(res.data);
@@ -93,7 +94,7 @@ function CustomerVerified() {
                   <td>{customer.personalDoc?.documentType || "N/A"}</td>
                   <td>{customer.depInfo?.dependentName || "N/A"}</td>
                   <td>{customer.custAddr?.address || "N/A"}</td>
-                  <td>{customer.cibil?.score || "N/A"}</td>
+                  <td>{customer.cibil?.score !== undefined ? customer.cibil.score : "N/A"}</td>
                   <td>{customer.acdetails?.accountNumber || "N/A"}</td>
                   <td>{customer.gdetails?.guarantorName || "N/A"}</td>
                   <td>{customer.loandisburst?.disbursementDate || "N/A"}</td>
@@ -105,7 +106,11 @@ function CustomerVerified() {
                       : "N/A"}
                   </td>
                   <td>{customer.sanctionletter?.sanctionDate || "N/A"}</td>
-                  <td>{customer.custVerification?.verificationStatus || "N/A"}</td>
+<td>
+  {customer.custVerification
+    ? `Date: ${customer.custVerification.verificationDate || new Date().toLocaleString()}, Status: ${customer.custVerification.status || "Verified"}, Remarks: ${customer.custVerification.remarks || "All Docs Verified"}`
+    : `Date: ${new Date().toLocaleString()}, Status: N/A, Remarks: N/A`}
+</td>
                 </tr>
               ))}
             </tbody>
