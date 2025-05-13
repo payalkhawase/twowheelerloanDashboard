@@ -18,10 +18,17 @@ import Dashboard from './template/Dashboard.jsx'
 import EnquiryPending from './enquiry/EnquiryPending.jsx'
 import EnquiryApproved from './enquiry/EnquiryApproved.jsx'
 import EnquiryRejected from './enquiry/EnquiryRejected.jsx'
+import Customer from './oe/customer/Customer.jsx'
+import EnquiryApprovedOE from './oe/EnquiryApprovedOE.jsx'
+import EnquiryRejectedOE from './oe/EnquiryRejectedOE.jsx'
 
 
 function App() {
   const [count, setCount] = useState(0)
+
+ 
+
+  // Your routes here
 
   return (
     <>
@@ -50,6 +57,11 @@ function App() {
               <Route path="/enquiry/enquiryPending" element={<EnquiryPending/>} />
               <Route path="/enquiry/enquiryApproved" element={<EnquiryApproved/>} />
               <Route path="/enquiry/enquiryRejected" element={<EnquiryRejected/>} />
+              <Route path="/oe/enquiryApproved" element={<EnquiryApproved/>} />
+              <Route path="/oe/enquiryRejected" element={<EnquiryRejected/>} />
+              <Route path="/customer/customer" element={<Customer/>} />
+              <Route path='/oe/enquiryApprovedOe' element={<EnquiryApprovedOE/>} />
+              <Route path='/oe/enquiryRejectedOe' element={<EnquiryRejectedOE/>}/>
       </Routes>
       </div>
       {/* <Dashboard></Dashboard> */}

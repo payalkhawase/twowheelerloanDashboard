@@ -1,14 +1,15 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import Sidenav from '../layout/Sidenav';
-import { data } from 'react-router-dom';
-import { useForm } from 'react-hook-form';
+import Customer from './customer/Customer';
+import { useNavigate } from 'react-router-dom';
 
-function EnquiryPending() {
+function EnquiryApprovedOE() {
   const [enquiry, setEnquiry] = useState([]);
-  const { register, handleSubmit, setValue, reset, getValues } = useForm();
+
+  const navigate = useNavigate();
   function getList() {
-    axios.get("http://localhost:9191/enq/enquiry/getPendingEnquiry")
+    axios.get("http://localhost:9191/enq/ApprovedEnquiry")
       .then(res => {
         setEnquiry(res.data);
       })
@@ -17,20 +18,15 @@ function EnquiryPending() {
       });
   }
 
-  function handleForwardOE(id) {
-    if(confirm("Want to forword to OE id : "+id))
-    {
-      axios.put(`http://localhost:9191/enq/updateEnquiryStatusforword/${id}`)
-  .then(() => getList())
-  .catch(error => console.log(error.message));
+  const [enqId, setEnqId] = useState()
+  const [showCustomer, setShowCustomer] = useState(false)
+
+  function getForm(id)
+  {
+    setShowCustomer(true)
+    setEnqId(id)
+    navigate('/customer/customer', { state: { enqId: id } });
   }
-}
-
-function saveData(data)
-{
-
-}
-
 
   useEffect(() => {
     getList();
@@ -40,8 +36,7 @@ function saveData(data)
     <div style={{display:'flex'}}>
       <Sidenav/>
       <div className="container mt-4">
-        <h3>Enquiry Pending List</h3>
-        <form onSubmit={handleSubmit(saveData)}>
+        <h3>Enquiry Approved List</h3>
         <table className="table table-bordered table-hover mt-3">
           <thead className="table-dark">
             <tr>
@@ -75,25 +70,18 @@ function saveData(data)
                 <td>{item.adharcardNo}</td>
                 <td>
                   <button className="btn btn-sm btn-primary me-2">Edit</button>
-                  <button className="btn btn-sm btn-danger">Delete</button>
-                  <button
-  className="btn btn-sm btn-success"
-  onClick={(e) => {
-    e.preventDefault();
-    handleForwardOE(item.customerId);
-  }}
->
-  ForwardOE
-</button>
+                  <button className="btn btn-sm btn-danger">Delete d</button>
+                  <button className="btn btn-sm btn-danger" onClick={()=>getForm(item.customerId)}>Form</button>
+                  {/* {showCustomer && <Customer enqId={enqId} />} */}
+
                 </td>
               </tr>
             ))}
           </tbody>
         </table>
-        </form>
       </div>
     </div>
   );
 }
 
-export default EnquiryPending;
+export default EnquiryApprovedOE;

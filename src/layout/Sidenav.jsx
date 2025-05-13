@@ -38,7 +38,17 @@ function Sidenav() {
           { label: "Rejected Enquiry", to: "/enquiry/enquiryRejected" }
         ]
       }
+    ],
+    OE: [
+      {
+        header: "Enquiry",
+        links: [
+          { label: "Approved Enquiry", to: "/oe/enquiryApprovedOe" },
+          { label: "Rejected Enquiry", to: "/oe/enquiryRejectedOe" }
+        ]
+      }
     ]
+    
   };
 
   function logout()

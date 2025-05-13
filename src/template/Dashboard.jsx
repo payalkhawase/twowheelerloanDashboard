@@ -3,7 +3,11 @@ import Sidenav from '../layout/Sidenav';
 import EnquiryRejected from '../enquiry/EnquiryRejected';
 import EnquiryPending from '../enquiry/EnquiryPending';
 import EnquiryApproved from '../enquiry/EnquiryApproved';
+
+
 import { Route, Routes } from 'react-router-dom';
+import EnquiryApprovedOE from '../oe/EnquiryApprovedOE';
+import EnquiryRejectedOE from '../oe/EnquiryRejectedOE';
 
 function Dashboard() {
 
@@ -21,7 +25,11 @@ function Dashboard() {
       { path: '/enquiry/enquiryPending', component: <EnquiryPending /> },
       { path: '/enquiry/enquiryApproved', component: <EnquiryApproved /> },
       { path: '/enquiry/enquiryRejected', component: <EnquiryRejected /> }
-    ]
+    ],
+    OE: [
+       { path: '/oe/enquiryApprovedOe', component: <EnquiryApprovedOE/> },
+        { path: '/oe/enquiryRejectedOe', component: <EnquiryRejectedOE /> }
+      ]
   };
 
   const routesToRender = appRoute[userType] || [];
