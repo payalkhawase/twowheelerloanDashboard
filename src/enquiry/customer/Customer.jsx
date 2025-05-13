@@ -7,6 +7,7 @@ import AddressDetails from "./AddressDetails";
 import PersonalDocuments from "./PersonalDocuments";
 import { useLocation } from 'react-router-dom';
 import axios from "axios";
+import Sidenav from "../../layout/Sidenav";
 
 const Customer = () => {
   const [step, setStep] = useState(1);
@@ -139,30 +140,49 @@ const handleChange = (path, key, event) => {
 
 
   switch (step) {
+    
     case 1:
       return (
+        <div style={{ display: 'flex' }}>
+      <Sidenav />
         <PersonalDetails nextStep={nextStep} handleChange={handleChange} values={formData} />
+        </div>
       );
     case 2:
       return (
+        <div style={{ display: 'flex' }}>
+      <Sidenav />
         <AccountDetails nextStep={nextStep} prevStep={prevStep} handleChange={handleChange} values={formData} />
+      </div>
       );
     case 3:
       return (
+        <div style={{ display: 'flex' }}>
+      <Sidenav />
             <DependentInformation nextStep={nextStep} prevStep={prevStep} handleChange={handleChange} values={formData} />
+      </div>
       );
     case 4:
       return (
+        <div style={{ display: 'flex' }}>
+      <Sidenav />
             <AddressDetails nextStep={nextStep} prevStep={prevStep} handleChange={handleChange} values={formData} />
+      </div>
       );  
     case 5:
       return (
+        <div style={{ display: 'flex' }}>
+      <Sidenav />
             <PersonalDocuments nextStep={nextStep} prevStep={prevStep}  handleFileChange={handleFileChange} values={formData} />
+      </div>
       );  
       
       case 6:
         return(
+          <div style={{ display: 'flex' }}>
+      <Sidenav />
         <Confirmation prevStep={prevStep} values={formData} />
+        </div>
         )
     default:
       return <div>Error</div>;
