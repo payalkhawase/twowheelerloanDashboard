@@ -1,12 +1,7 @@
-import React from 'react'
-<<<<<<< HEAD
-=======
-import Page from '../layout/Page';
+import React from 'react';
 
 // import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom"
 // import { Collapse } from 'react-bootstrap';
-
->>>>>>> 3304f6e582b4e54e3bbf7a25c7bd5d8437ea1cc7
 import { BrowserRouter as Router, Routes, Route, Link, useNavigate } from "react-router-dom";
 import { Collapse } from "react-bootstrap";
 
