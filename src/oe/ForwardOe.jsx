@@ -4,6 +4,7 @@ import Sidenav from '../layout/Sidenav'
 
 function ForwardOe() {
 
+
   const [enquiry, setEnquiry] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
@@ -28,10 +29,12 @@ function ForwardOe() {
             const updatedCibil = res.data.cibil;
             
             // Update the visibleCibil state with the new CIBIL data
-            setVisibleCibil(prev => ({
-                ...prev,
-                [customerId]: updatedCibil
-            }));
+          
+    setVisibleCibil(prev => ({
+        ...prev,
+        [customerId]: updatedCibil
+    }));
+
         })
         .catch(err => {
             console.log("Error fetching data: ", err)
@@ -109,6 +112,7 @@ function ForwardOe() {
             </div>
         </div>
     )
+
 
 }
 

@@ -6,6 +6,7 @@ import EnquiryApproved from '../enquiry/EnquiryApproved';
 import CustomerList from '../enquiry/CustomerList';
 import { Route, Routes } from 'react-router-dom';
 import ForwardOe from '../oe/ForwardOe';
+
 import CustomerVerified from '../CM/CustomerVerified';
 import SubmittedCustomer from '../oe/SubmittedCustomer';
 import VerifyDetails from '../oe/VerifyDetails';
@@ -33,10 +34,14 @@ function Dashboard() {
       { path: '/enquiry/enquiryPending', component: <EnquiryPending/> },
       { path: '/enquiry/enquiryApproved', component: <EnquiryApproved /> },
 
+
       { path: '/enquiry/enquiryRejected', component: <EnquiryRejected /> },
       { path: '/customer/customerlist', component:  <CustomerList/>}
 
       
+
+      { path: '/enquiry/enquiryRejected', component: <EnquiryRejected/> }
+
 
     ],
     OE:[

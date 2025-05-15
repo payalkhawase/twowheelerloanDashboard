@@ -23,6 +23,8 @@ import EnquiryRejected from './enquiry/EnquiryRejected.jsx'
 import CustomerList from './enquiry/CustomerList.jsx'
 
 import ForwardOe from './oe/ForwardOe.jsx'
+
+// import CustomerVerified from './oe/CustomerVerified.jsx'
 import SubmittedCustomer from './oe/SubmittedCustomer.jsx'
 import VerifyDetails from './oe/VerifyDetails.jsx'
 import CustomerVerified from './CM/CustomerVerified.jsx'
@@ -71,8 +73,11 @@ function App() {
               <Route path="/enquiry/enquiryApproved" element={<EnquiryApproved/>} />
               <Route path="/enquiry/enquiryRejected" element={<EnquiryRejected/>} />
 
+
               <Route path="enquiry/customerList" element={<CustomerList />} />
               {/* <Route path="/customer/customerList" element={<CustomerList/>} /> */}
+
+
 
 
               <Route path="/oe/forwordoe" element={<ForwardOe/>} />
