@@ -1,11 +1,12 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import Sidenav from '../layout/Sidenav';
-import { useNavigate } from 'react-router-dom';
+import Customer from '../enquiry/customer/Customer';
 
-function EnquiryApproved() {
+function EnquiryApprovedOE() {
   const [enquiry, setEnquiry] = useState([]);
-const navigate = useNavigate();
+
+  
   function getList() {
     axios.get("http://localhost:9191/enq/ApprovedEnquiry")
       .then(res => {
@@ -16,16 +17,6 @@ const navigate = useNavigate();
       });
   }
 
-  
-  const [enqId, setEnqId] = useState()
-  const [showCustomer, setShowCustomer] = useState(false)
-
-  function getForm(id)
-  {
-    setShowCustomer(true)
-    setEnqId(id)
-    navigate('/customer/customer', { state: { enqId: id } });
-  }
 
   useEffect(() => {
     getList();
@@ -69,8 +60,10 @@ const navigate = useNavigate();
                 <td>{item.adharcardNo}</td>
                 <td>
                   <button className="btn btn-sm btn-primary me-2">Edit</button>
-                  <button className="btn btn-sm btn-danger">Delete</button>
-                  <button className="btn btn-sm btn-success" onClick={()=>getForm(item.customerId)}>Apply For Loan</button>
+                  <button className="btn btn-sm btn-danger">Delete d</button>
+                  <button className="btn btn-sm btn-danger" >Form</button>
+                  {/* {showCustomer && <Customer enqId={enqId} />} */}
+
                 </td>
               </tr>
             ))}
@@ -81,4 +74,4 @@ const navigate = useNavigate();
   );
 }
 
-export default EnquiryApproved;
+export default EnquiryApprovedOE;

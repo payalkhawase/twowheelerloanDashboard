@@ -19,6 +19,8 @@ import Dashboard from './template/Dashboard.jsx'
 import EnquiryPending from './enquiry/EnquiryPending.jsx'
 import EnquiryApproved from './enquiry/EnquiryApproved.jsx'
 import EnquiryRejected from './enquiry/EnquiryRejected.jsx'
+import EnquiryApprovedOE from './oe/EnquiryApprovedOE.jsx'
+import EnquiryRejectedOE from './oe/EnquiryRejectedOE.jsx'
 
 import CustomerList from './enquiry/CustomerList.jsx'
 
@@ -29,6 +31,7 @@ import SubmittedCustomer from './oe/SubmittedCustomer.jsx'
 import VerifyDetails from './oe/VerifyDetails.jsx'
 import CustomerVerified from './CM/CustomerVerified.jsx'
 import LoanSanction from './CM/LoanSanction.jsx'
+import Customer from './enquiry/customer/Customer.jsx'
 import ViewProfile from './CUSTOMER/ViewProfile.jsx'
 import ViewSaction from './CUSTOMER/ViewSaction.jsx'
 import LoginCustomer from './template/LoginCustomer.jsx'
@@ -39,6 +42,7 @@ import ViewSanctionList from './AH/ViewSanctionList.jsx'
 
 function App() {
   const [count, setCount] = useState(0)
+  // Your routes here
 
   return (
     <>
@@ -72,14 +76,12 @@ function App() {
               <Route path="/enquiry/enquiryPending" element={<EnquiryPending/>} />
               <Route path="/enquiry/enquiryApproved" element={<EnquiryApproved/>} />
               <Route path="/enquiry/enquiryRejected" element={<EnquiryRejected/>} />
-
+              <Route path="/customer/customer" element={<Customer/>} />
+              <Route path='/oe/enquiryApprovedOe' element={<EnquiryApprovedOE/>} />
+              <Route path='/oe/enquiryRejectedOe' element={<EnquiryRejectedOE/>}/>
 
               <Route path="enquiry/customerList" element={<CustomerList />} />
               {/* <Route path="/customer/customerList" element={<CustomerList/>} /> */}
-
-
-
-
               <Route path="/oe/forwordoe" element={<ForwardOe/>} />
               <Route path="/oe/submittedlist" element={<SubmittedCustomer/>} /> 
               <Route path="/oe/verifydetails/:customerId" element={<VerifyDetails/>} /> 

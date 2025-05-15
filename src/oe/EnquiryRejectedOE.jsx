@@ -1,30 +1,18 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import Sidenav from '../layout/Sidenav';
-import { useNavigate } from 'react-router-dom';
 
-function EnquiryApproved() {
+function EnquiryRejectedOE() {
   const [enquiry, setEnquiry] = useState([]);
-const navigate = useNavigate();
+
   function getList() {
-    axios.get("http://localhost:9191/enq/ApprovedEnquiry")
+    axios.get("http://localhost:7777/enq/RejectedEnquiry")
       .then(res => {
         setEnquiry(res.data);
       })
       .catch(err => {
         console.error("Error fetching data:", err);
       });
-  }
-
-  
-  const [enqId, setEnqId] = useState()
-  const [showCustomer, setShowCustomer] = useState(false)
-
-  function getForm(id)
-  {
-    setShowCustomer(true)
-    setEnqId(id)
-    navigate('/customer/customer', { state: { enqId: id } });
   }
 
   useEffect(() => {
@@ -35,7 +23,7 @@ const navigate = useNavigate();
     <div style={{display:'flex'}}>
       <Sidenav/>
       <div className="container mt-4">
-        <h3>Enquiry Approved List</h3>
+        <h3>Enquiry Rejected List</h3>
         <table className="table table-bordered table-hover mt-3">
           <thead className="table-dark">
             <tr>
@@ -70,7 +58,6 @@ const navigate = useNavigate();
                 <td>
                   <button className="btn btn-sm btn-primary me-2">Edit</button>
                   <button className="btn btn-sm btn-danger">Delete</button>
-                  <button className="btn btn-sm btn-success" onClick={()=>getForm(item.customerId)}>Apply For Loan</button>
                 </td>
               </tr>
             ))}
@@ -81,4 +68,4 @@ const navigate = useNavigate();
   );
 }
 
-export default EnquiryApproved;
+export default EnquiryRejectedOE;
