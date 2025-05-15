@@ -6,7 +6,13 @@ import { Collapse } from "react-bootstrap";
 import EnquiryPending from '../enquiry/EnquiryPending';
 import EnquiryApproved from '../enquiry/EnquiryApproved';
 import EnquiryRejected from '../enquiry/EnquiryRejected';
+<<<<<<< HEAD
 
+=======
+import ForwardOe from '../oe/ForwardOe';
+import CustomerVerified from '../CM/CustomerVerified';
+import SubmittedCustomer from '../oe/SubmittedCustomer';
+>>>>>>> 4c6aa457aefb00c1fa217c370e1207ba4ee4642f
 function Sidenav() {
   const [openMenu, setOpenMenu] = React.useState(false);
   const userJson = localStorage.getItem("user");
@@ -39,6 +45,26 @@ function Sidenav() {
           { label: "Pending Enquiry", to: "/enquiry/enquiryPending" },
           { label: "Approved Enquiry", to: "/enquiry/enquiryApproved" },
           { label: "Rejected Enquiry", to: "/enquiry/enquiryRejected" }
+        ]
+      }
+    ],
+    OE: [
+      {
+
+        header: "operationExecutive",
+        links: [
+          { label: "forwordoe status", to: "/oe/forwordoe" },
+         
+          { label: "Submitted customer", to: "/oe/submittedlist"}
+        ]
+      }
+    ],
+    CM:[
+      {
+        header:"credit manager",
+        links:[
+             { label: "Verified customer", to: "/cm/verifiedlist" },
+             
         ]
       }
     ]
@@ -105,6 +131,11 @@ function Sidenav() {
             <Route path="/enquiry/enquiryApproved" element={<EnquiryApproved />} />
             <Route path="/enquiry/enquiryRejected" element={<EnquiryRejected />} />
             {/* <Route path="/template/logout" element={<Logout />} /> */}
+
+            <Route path="/oe/forwordoe" element={<ForwardOe/>} />
+            <Route path="/oe/submittedlist" element={<SubmittedCustomer/>} /> 
+
+            <Route path="/cm/verifiedlist" element={<CustomerVerified/>} />
           </Routes>
         </div>
       </div>

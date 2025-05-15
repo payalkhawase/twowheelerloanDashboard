@@ -8,8 +8,7 @@ import {
   adharcardValidation, passwordValidation
 } from './Enquiry/EnquiryValidation';
 
-
-export default function Enquiry() {
+function Enquiry() {
   const { register, handleSubmit, reset, setValue, formState: { errors } } = useForm();
   const [enquiries, setEnquiries] = useState([]);
   const [customerId, setCustomerId] = useState("");
@@ -39,6 +38,7 @@ export default function Enquiry() {
           <input {...register('firstname', firstNameValidation)} className="form-control" placeholder="First Name" />
           {errors.firstname && <div className="text-danger">{errors.firstname.message}</div>}
         </div>
+
 
         <div className="mb-3">
           <label className="form-label">Last Name</label>
@@ -113,3 +113,4 @@ export default function Enquiry() {
     </div>
   );
 }
+export default Enquiry;

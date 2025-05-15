@@ -3,8 +3,15 @@ import React, { useEffect, useState } from 'react'
 import Sidenav from '../layout/Sidenav'
 
 function ForwardOe() {
+
+
+  const [enquiry, setEnquiry] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
+
     const [oe, setOe] = useState([])
     const [visibleCibil, setVisibleCibil] = useState({}) // State to track visible CIBIL info
+
 
     function getList() {
         axios.get("http://localhost:9191/enq/enquiry/getForwordOE")
@@ -22,10 +29,12 @@ function ForwardOe() {
             const updatedCibil = res.data.cibil;
             
             // Update the visibleCibil state with the new CIBIL data
-            setVisibleCibil(prev => ({
-                ...prev,
-                [customerId]: updatedCibil
-            }));
+          
+    setVisibleCibil(prev => ({
+        ...prev,
+        [customerId]: updatedCibil
+    }));
+
         })
         .catch(err => {
             console.log("Error fetching data: ", err)
@@ -103,6 +112,8 @@ function ForwardOe() {
             </div>
         </div>
     )
+
+
 }
 
-export default ForwardOe
+export default ForwardOe;
