@@ -1,9 +1,5 @@
 import React from 'react'
 import Page from '../layout/Page';
-
-// import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom"
-// import { Collapse } from 'react-bootstrap';
-
 import { BrowserRouter as Router, Routes, Route, Link, useNavigate } from "react-router-dom";
 import { Collapse } from "react-bootstrap";
 
@@ -13,6 +9,7 @@ import EnquiryRejected from '../enquiry/EnquiryRejected';
 import ForwardOe from '../oe/ForwardOe';
 import CustomerVerified from '../CM/CustomerVerified';
 import SubmittedCustomer from '../oe/SubmittedCustomer';
+import ViewSanctionList from '../AH/ViewSanctionList';
 function Sidenav() {
   const [openMenu, setOpenMenu] = React.useState(false);
   const userJson = localStorage.getItem("user");
@@ -30,6 +27,12 @@ function Sidenav() {
           { label: "Rejected Enquiry", to: "/enquiry/enquiryRejected" }
         ]
       },
+      // {
+      //   header: "Customer", 
+      //   links: [
+      //     { label: "CustomerList", to: "/enquiry/customerList" } 
+      //   ]
+      // },
       {
         header: "Employee",
         links: [
@@ -47,7 +50,7 @@ function Sidenav() {
           { label: "Rejected Enquiry", to: "/enquiry/enquiryRejected" }
         ]
       }
-    ],
+      ],
     OE: [
       {
 
@@ -67,7 +70,31 @@ function Sidenav() {
              
         ]
       }
+
+    ],
+    CUSTOMER:[
+      {
+        header:"customer",
+        links:[
+             { label: "ViewProfile", to: "/customer/viewprofile" },
+             {label: "ViewSanction",to:"/customer/viewsanction"}
+             
+        ]
+      }
+
+    ],
+     AH:[
+      {
+        header:"AH",
+        links:[
+             { label: "ViewSanctionList", to: "/ah/viewsanctionlist" },
+             //{label: "ViewSanction",to:"/customer/viewsanction"}
+             
+        ]
+      }
+
     ]
+
   };
 
   function logout()
@@ -87,7 +114,7 @@ function Sidenav() {
         <img src={'data:image/jpeg;base64,' + empImage} alt="Profile" style={{width:'100px',height:'100px'}} className="img-fluid rounded-circle mb-3" />
           <div>
           <h4>{userType}</h4>
-          <h6>{empFirstName+" "+empLastName}</h6>
+          {/* <h6>{empFirstName+" "+empLastName}</h6> */}
           </div></div>
           <ul className="nav flex-column">
             <li className="nav-item">
@@ -124,7 +151,7 @@ function Sidenav() {
           </ul>
         </div>
 
-        {/* Content */}
+
         <div className="flex-grow-1 p-3">
           <Routes>
             <Route path="/enquiry/enquiryPending" element={<EnquiryPending />} />
@@ -134,8 +161,8 @@ function Sidenav() {
 
             <Route path="/oe/forwordoe" element={<ForwardOe/>} />
             <Route path="/oe/submittedlist" element={<SubmittedCustomer/>} /> 
-
             <Route path="/cm/verifiedlist" element={<CustomerVerified/>} />
+            <Route path="/ah/viewsanctionlist" element={<ViewSanctionList/>} />
           </Routes>
         </div>
       </div>
