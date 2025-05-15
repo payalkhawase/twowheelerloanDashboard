@@ -6,6 +6,10 @@ import { Collapse } from "react-bootstrap";
 import EnquiryPending from '../enquiry/EnquiryPending';
 import EnquiryApproved from '../enquiry/EnquiryApproved';
 import EnquiryRejected from '../enquiry/EnquiryRejected';
+import ForwardOe from '../oe/ForwardOe';
+import CustomerVerified from '../CM/CustomerVerified';
+import SubmittedCustomer from '../oe/SubmittedCustomer';
+import ViewSanctionList from '../AH/ViewSanctionList';
 function Sidenav() {
   const [openMenu, setOpenMenu] = React.useState(false);
   const userJson = localStorage.getItem("user");
@@ -45,9 +49,51 @@ function Sidenav() {
           { label: "Approved Enquiry", to: "/enquiry/enquiryApproved" },
           { label: "Rejected Enquiry", to: "/enquiry/enquiryRejected" }
         ]
-      },
-      
+      }
+      ],
+    OE: [
+      {
+        header: "operationExecutive",
+        links: [
+          { label: "forwordoe status", to: "/oe/forwordoe" },
+         
+          { label: "Submitted customer", to: "/oe/submittedlist"}
+        ]
+      }
+    ],
+    CM:[
+      {
+        header:"credit manager",
+        links:[
+             { label: "Verified customer", to: "/cm/verifiedlist" },
+             
+        ]
+      }
+
+    ],
+    CUSTOMER:[
+      {
+        header:"customer",
+        links:[
+             { label: "ViewProfile", to: "/customer/viewprofile" },
+             {label: "ViewSanction",to:"/customer/viewsanction"}
+             
+        ]
+      }
+
+    ],
+     AH:[
+      {
+        header:"AH",
+        links:[
+             { label: "ViewSanctionList", to: "/ah/viewsanctionlist" },
+             //{label: "ViewSanction",to:"/customer/viewsanction"}
+             
+        ]
+      }
+
     ]
+
   };
 
   function logout()
@@ -67,7 +113,7 @@ function Sidenav() {
         <img src={'data:image/jpeg;base64,' + empImage} alt="Profile" style={{width:'100px',height:'100px'}} className="img-fluid rounded-circle mb-3" />
           <div>
           <h4>{userType}</h4>
-          <h6>{empFirstName+" "+empLastName}</h6>
+          {/* <h6>{empFirstName+" "+empLastName}</h6> */}
           </div></div>
           <ul className="nav flex-column">
             <li className="nav-item">
@@ -99,7 +145,7 @@ function Sidenav() {
             ))}
 
             <li className="nav-item">
-              <Link to="/" onClick={logout} className="nav-link text-white"><i class="bi bi-box-arrow-right"></i> Logout</Link>
+              <Link to="/" onClick={logout} className="nav-link text-white"><i className="bi bi-box-arrow-right"></i> Logout</Link>
             </li>
           </ul>
         </div>
@@ -111,6 +157,11 @@ function Sidenav() {
             <Route path="/enquiry/enquiryApproved" element={<EnquiryApproved />} />
             <Route path="/enquiry/enquiryRejected" element={<EnquiryRejected />} />
             {/* <Route path="/template/logout" element={<Logout />} /> */}
+
+            <Route path="/oe/forwordoe" element={<ForwardOe/>} />
+            <Route path="/oe/submittedlist" element={<SubmittedCustomer/>} /> 
+            <Route path="/cm/verifiedlist" element={<CustomerVerified/>} />
+            <Route path="/ah/viewsanctionlist" element={<ViewSanctionList/>} />
           </Routes>
         </div>
       </div>

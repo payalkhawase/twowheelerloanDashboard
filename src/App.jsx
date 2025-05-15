@@ -19,7 +19,18 @@ import Dashboard from './template/Dashboard.jsx'
 import EnquiryPending from './enquiry/EnquiryPending.jsx'
 import EnquiryApproved from './enquiry/EnquiryApproved.jsx'
 import EnquiryRejected from './enquiry/EnquiryRejected.jsx'
+
 import CustomerList from './enquiry/CustomerList.jsx'
+
+import ForwardOe from './oe/ForwardOe.jsx'
+import SubmittedCustomer from './oe/SubmittedCustomer.jsx'
+import VerifyDetails from './oe/VerifyDetails.jsx'
+import CustomerVerified from './CM/CustomerVerified.jsx'
+import LoanSanction from './CM/LoanSanction.jsx'
+import ViewProfile from './CUSTOMER/ViewProfile.jsx'
+import ViewSaction from './CUSTOMER/ViewSaction.jsx'
+import LoginCustomer from './template/LoginCustomer.jsx'
+import ViewSanctionList from './AH/ViewSanctionList.jsx'
 
 
 
@@ -50,6 +61,8 @@ function App() {
               <Route path="/enquiry" element={<Enquiry />} />
               &nbsp;
               <Route path="/login" element={<Login/>} />
+              &nbsp;
+              <Route path="/customerlogin" element={<LoginCustomer/>} />
               
               {/* <Route path="/customerList" element={<CustomerList/>} /> */}
 
@@ -57,8 +70,19 @@ function App() {
               <Route path="/enquiry/enquiryPending" element={<EnquiryPending/>} />
               <Route path="/enquiry/enquiryApproved" element={<EnquiryApproved/>} />
               <Route path="/enquiry/enquiryRejected" element={<EnquiryRejected/>} />
+
               <Route path="enquiry/customerList" element={<CustomerList />} />
               {/* <Route path="/customer/customerList" element={<CustomerList/>} /> */}
+
+
+              <Route path="/oe/forwordoe" element={<ForwardOe/>} />
+              <Route path="/oe/submittedlist" element={<SubmittedCustomer/>} /> 
+              <Route path="/oe/verifydetails/:customerId" element={<VerifyDetails/>} /> 
+              <Route path="/cm/verifiedlist" element={<CustomerVerified/>} />
+              <Route path="/cm/sanctionloan/:customerId" element={<LoanSanction/>} />
+              <Route path="/customer/viewprofile" element={<ViewProfile/>} />
+              <Route path="/customer/viewsanction" element={<ViewSaction/>} />
+              <Route path="/ah/viewsanctionlist" element={<ViewSanctionList/>} />
 
       </Routes>
       </div>
