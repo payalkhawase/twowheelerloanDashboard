@@ -4,15 +4,14 @@ import React, { useState } from 'react';
 import { useForm } from "react-hook-form";
 import { Link, useNavigate } from "react-router-dom";
 
-function Login() {
+function LoginCustomer() {
   const { register, handleSubmit } = useForm();
   const navigate = useNavigate();
   <Link to="/dashboard" className="nav-link text-white"></Link>
 
   function onLogin(data) {
 
-    console.log(`http://localhost:9199/adminlogin/getEmployee/${data.username}/${data.password}`);
-    axios.get(`http://localhost:9199/adminlogin/getEmployee/${data.username}/${data.password}`)
+    axios.get(`http://localhost:9197/login/loginAUser/${data.customerEmail}/${data.password}`)
       .then((res) => {
         console.log(res.data);
         localStorage.setItem("user", JSON.stringify(res.data));
@@ -26,18 +25,18 @@ function Login() {
         <div className="col-md-6">
           <div className="card shadow">
             <div className="card-body">
-              <h3 className="card-title text-center mb-4">Employee Login</h3>
+              <h3 className="card-title text-center mb-4">Customer Login</h3>
               {/* {error && <div className="alert alert-danger">{error}</div>} */}
               <form onSubmit={handleSubmit(onLogin)}>
                 <div className="mb-3">
-                  <label htmlFor="username" className="form-label">Username</label>
+                  <label htmlFor="customerEmail" className="form-label">Email</label>
                   <input
                     type="text"
                     className="form-control"
-                    id="username"
-                    // value={username}
-                    {...register('username')}
-                    placeholder="Enter Username"
+                    id="customerEmail"
+                    // value={customerEmail}
+                    {...register('customerEmail')}
+                    placeholder="Enter customerEmail"
                   />
                 </div>
                 <div className="mb-3">
@@ -63,4 +62,4 @@ function Login() {
   );
 };
 
-export default Login;
+export default LoginCustomer;

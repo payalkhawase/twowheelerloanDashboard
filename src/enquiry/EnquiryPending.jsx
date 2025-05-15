@@ -71,6 +71,7 @@ function EnquiryPending() {
               </tr>
             </thead>
             <tbody>
+
               {enquiry.map((item, index) => 
                 <tr key={item.customerId || index}>
                   <td>{item.customerId || index + 1}</td>
@@ -103,5 +104,6 @@ function EnquiryPending() {
     </div>
   );
 }
+
 
 export default EnquiryPending

@@ -10,11 +10,12 @@ function CustomerVerified() {
   const [error, setError] = useState(null);
 
   const getCustomer = () => {
-    console.log("Fetching customer for ID:", customerId);
 
     // Fetch all verified customers (or replace with specific endpoint if needed)
-    axios.get(`http://localhost:9194/apploan/getCustomerVerified`)
+    axios.get("http://localhost:9194/apploan/getVerifiedCustomers")
+    
       .then(res => {
+
         console.log("API Response:", res.data);
         if (Array.isArray(res.data)) {
           setCustomers(res.data);
@@ -61,7 +62,21 @@ function CustomerVerified() {
                 <th>On-Road Price</th>
                 <th>Required Tenure</th>
                 <th>Interest Type</th>
+                <th>Personal Documents</th>
+                <th>Dependant name</th>
+                <th>Address</th>
+                <th>Cibil score</th>
+                <th>Account number</th>
+                <th>Guarantor name</th>
+                <th>Disbursement date</th>
+                <th>Ledger</th>
+                <th>Sanction letter</th>
+                <th>Customer verification</th>
                 <th>Action</th>
+
+
+
+
               </tr>
             </thead>
             <tbody>
@@ -81,6 +96,26 @@ function CustomerVerified() {
                   <td>{customer.onRoadPrice}</td>
                   <td>{customer.requiredTenure}</td>
                   <td>{customer.interestType || "Compound Interest"}</td>
+                  <td>{customer.personalDoc?.documentType || "N/A"}</td>
+                  <td>{customer.depInfo?.dependentName || "N/A"}</td>
+                  <td>{customer.custAddr?.address || "N/A"}</td>
+                  <td>{customer.cibil?.score !== undefined ? customer.cibil.score : "N/A"}</td>
+                  <td>{customer.acdetails?.accountNumber || "N/A"}</td>
+                  <td>{customer.gdetails?.guarantorName || "N/A"}</td>
+                  <td>{customer.loandisburst?.disbursementDate || "N/A"}</td>
+                  <td>
+                    {customer.led?.length > 0
+                      ? customer.led.map((ledger, idx) => (
+                          <span key={idx}>{ledger.transactionDetails}{idx < customer.led.length - 1 ? ', ' : ''}</span>
+                        ))
+                      : "N/A"}
+                  </td>
+                  <td>{customer.sanctionletter?.sanctionDate || "N/A"}</td>
+<td>
+  {customer.custVerification
+    ? `Date: ${customer.custVerification.verificationDate || new Date().toLocaleString()}, Status: ${customer.custVerification.status || "Verified"}, Remarks: ${customer.custVerification.remarks || "All Docs Verified"}`
+    : `Date: ${new Date().toLocaleString()}, Status: N/A, Remarks: N/A`}
+</td>
                  <Link to={`/cm/sanctionloan/${customer.customerId}`}  className="btn btn-sm btn-primary me-2">LoanSanction</Link>
                 </tr>
               ))}
