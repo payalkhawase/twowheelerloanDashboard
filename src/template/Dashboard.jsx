@@ -14,6 +14,7 @@ import LoanSanction from '../CM/LoanSanction';
 import ViewProfile from '../CUSTOMER/ViewProfile';
 import ViewSaction from '../CUSTOMER/ViewSaction';
 import ViewSanctionList from '../AH/ViewSanctionList';
+import ViewDisburstList from '../AH/ViewDisburstList';
 
 function Dashboard() {
 
@@ -55,8 +56,8 @@ function Dashboard() {
 
     ],
     AH:[
-        {path: '/ah/viewsanctionlist',component: <ViewSanctionList/>}
-        //{path:  '/customer/viewsanction',component:<ViewSaction/>}
+        {path: '/ah/viewsanctionlist',component: <ViewSanctionList/>},
+        {path:  '/ah/ViewDisburstList',component:<ViewDisburstList/>}
 
     ]
     

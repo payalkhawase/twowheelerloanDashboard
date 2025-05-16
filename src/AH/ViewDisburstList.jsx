@@ -1,22 +1,25 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react'
-import { Link, useParams } from 'react-router-dom';
+import { Link, useNavigate, useParams } from 'react-router-dom';
 import Sidenav from '../layout/Sidenav';
 
 
 
-function ViewSanctionList() {
+function ViewDisburstList() {
 
   const { customerId } = useParams();
   const [customers, setCustomers] = useState([]); // Changed from single customer to array
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
+  const navigate = useNavigate();
+  const [cust, setCust] = useState()
+
   const getCustomer = () => {
     console.log("Fetching customer for ID:", customerId);
 
     // Fetch all verified customers (or replace with specific endpoint if needed)
-    axios.get(`http://localhost:9194/apploan/getSanctionedCustomers`)
+    axios.get(`http://localhost:9194/apploan/getDisburstCustomers`)
       .then(res => {
         console.log("API Response:", res.data);
         if (Array.isArray(res.data)) {
@@ -33,25 +36,44 @@ function ViewSanctionList() {
       });
   };
 
-  const ondisburst = (customerId, loanAmount) => {
-  alert("Disbursing loan for Customer ID:", customerId, "Loan Amount:", loanAmount);
+  const onPayloan = (customerId) => {
+  alert("Disbursing loan for Customer ID:"+ customerId);
   // You can perform an API call here to trigger disbursement
   // axios.post or axios.put
-  console.log(`http://localhost:9196/disburse/adddisbursment/${loanAmount}/${customerId}`);
-  axios.post(`http://localhost:9196/disburse/adddisbursment/${loanAmount}/${customerId}`, {
-    customerId,
-    loanAmount
+  console.log(`http://localhost:9198/led/generateledger/${customerId}`);
+  axios.post(`http://localhost:9198/led/generateledger/${customerId}`, {
+    customerId
   })
   .then(res => {
-    alert("Loan disbursed successfully!");
+    alert("Loan EMI Paid successfully!");
     getCustomer(); // Refresh data if needed
   })
   .catch(err => {
-    console.error("Disbursement error:", err);
-    alert("Failed to disburse loan.");
+    console.error("Loan emi error:", err);
+    alert("Failed to EMI loan.");
   });
 };
 
+ const onLedger = (customerId) => {
+  alert("Disbursing loan for Customer ID:"+ customerId);
+  // You can perform an API call here to trigger disbursement
+  // axios.post or axios.put
+  console.log(`http://localhost:9194/apploan/getaCustomer/${customerId}`);
+  axios.get(`http://localhost:9194/apploan/getaCustomer/${customerId}`, {
+    customerId
+  })
+  .then(res => {
+      console.log(res.data);
+      setCust(customerId)
+    navigate('/ah/ViewLedgerCustomerList', { state: { cust: customerId } });
+    // alert("Loan EMI Paid successfully!");
+    // getCustomer(); // Refresh data if needed
+  })
+  .catch(err => {
+    console.error("Ledger error:", err);
+    alert("Failed to EMI loan.");
+  });
+};
 
   useEffect(() => {
     getCustomer();
@@ -60,7 +82,7 @@ function ViewSanctionList() {
      <div style={{ display: 'flex' }}>
       <Sidenav />
       <div className="container mt-4">
-        <h3>Customer Verified Details</h3>
+        <h3>Customer Disburst Details</h3>
 
         {loading && <p>Loading...</p>}
         {error && <p className="text-danger">{error}</p>}
@@ -136,7 +158,10 @@ function ViewSanctionList() {
   {customer.custVerification
     ? `Date: ${customer.custVerification.verificationDate || new Date().toLocaleString()}, Status: ${customer.custVerification.status || "Verified"}, Remarks: ${customer.custVerification.remarks || "All Docs Verified"}`
     : `Date: ${new Date().toLocaleString()}, Status: N/A, Remarks: N/A`}
-    <button className="btn btn-sm btn-primary me-2" onClick={()=>ondisburst(customer.customerId,customer.sanctionletter.loanAmtSanctioned)}>Loan Disburst</button>
+    
+</td>
+<td><button className="btn btn-sm btn-primary me-2" onClick={()=>onPayloan(customer.customerId)}>Pay EMI</button>
+<button className="btn btn-sm btn-primary me-2" onClick={()=>onLedger(customer.customerId)}>View Ledger</button>
 </td>
 
                  
@@ -152,4 +177,4 @@ function ViewSanctionList() {
   )
 }
 
-export default ViewSanctionList
+export default ViewDisburstList

@@ -88,6 +88,7 @@ function Sidenav() {
         header:"AH",
         links:[
              { label: "ViewSanctionList", to: "/ah/viewsanctionlist" },
+             { label: "ViewDisburstList", to: "/ah/ViewDisburstList" },
              //{label: "ViewSanction",to:"/customer/viewsanction"}
              
         ]

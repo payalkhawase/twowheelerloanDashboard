@@ -36,6 +36,8 @@ import ViewProfile from './CUSTOMER/ViewProfile.jsx'
 import ViewSaction from './CUSTOMER/ViewSaction.jsx'
 import LoginCustomer from './template/LoginCustomer.jsx'
 import ViewSanctionList from './AH/ViewSanctionList.jsx'
+import ViewDisburstList from './AH/ViewDisburstList.jsx'
+import ViewLedgerCustomerList from './AH/ViewLedgerCutomerList.jsx'
 
 
 
@@ -90,7 +92,8 @@ function App() {
               <Route path="/customer/viewprofile" element={<ViewProfile/>} />
               <Route path="/customer/viewsanction" element={<ViewSaction/>} />
               <Route path="/ah/viewsanctionlist" element={<ViewSanctionList/>} />
-
+              <Route path='/ah/ViewDisburstList' element={<ViewDisburstList/>} />
+              <Route path='/ah/ViewLedgerCustomerList' element={<ViewLedgerCustomerList/>} />
       </Routes>
       </div>
       
