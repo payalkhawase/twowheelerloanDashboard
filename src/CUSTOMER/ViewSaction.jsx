@@ -1,6 +1,7 @@
 import React, { useEffect } from "react";
 import { useForm } from "react-hook-form";
 import axios from "axios";
+import Sidenav from "../layout/Sidenav";
 
 
 function ViewSaction()
@@ -50,6 +51,8 @@ function acceptSanctionStatus(data)
 //   };
 
   return (
+    <div style={{display:'flex'}}>
+      <Sidenav/>
     <div className="container mt-5">
       <h2 className="mb-4">Sanction Form</h2>
       <form onSubmit={handleSubmit(acceptSanctionStatus)} className="row g-3">
@@ -116,6 +119,7 @@ function acceptSanctionStatus(data)
         </div>
 
       </form>
+    </div>
     </div>
   );
 }

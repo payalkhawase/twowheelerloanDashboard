@@ -84,7 +84,7 @@ function ForwardOe() {
                                         <td>{item.adharcardNo}</td>
                                         <td>
                                             <button className='btn btn-sm btn-primary me-2'>Edit</button>
-                                            {item.enquiryStatus === "ForwardOe" && (
+                                            {item.enquiryStatus === "ForwordOe" && (
                                                 <button 
                                                     onClick={() => checkCibil(item.customerId)} 
                                                     className="btn btn-sm btn-info me-2"
