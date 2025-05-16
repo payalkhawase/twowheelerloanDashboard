@@ -24,7 +24,7 @@ import EnquiryRejectedOE from './oe/EnquiryRejectedOE.jsx'
 
 import CustomerList from './enquiry/CustomerList.jsx'
 
-import ForwardOe from './oe/ForwardOe.jsx'
+import ForwardOe from './oe/ForwardOe.jsx' 
 
 // import CustomerVerified from './oe/CustomerVerified.jsx'
 import SubmittedCustomer from './oe/SubmittedCustomer.jsx'

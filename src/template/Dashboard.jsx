@@ -38,11 +38,6 @@ function Dashboard() {
       { path: '/enquiry/enquiryRejected', component: <EnquiryRejected /> },
       { path: '/customer/customerlist', component:  <CustomerList/>}
 
-      
-
-      { path: '/enquiry/enquiryRejected', component: <EnquiryRejected/> }
-
-
     ],
     OE:[
       { path: '/oe/forwordoe', component: <ForwardOe/> },
