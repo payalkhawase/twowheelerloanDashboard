@@ -60,7 +60,7 @@ function ViewSanctionList() {
      <div style={{ display: 'flex' }}>
       <Sidenav />
       <div className="container mt-4">
-        <h3>Customer Verified Details</h3>
+        <h3>Customer Sanctioned Details</h3>
 
         {loading && <p>Loading...</p>}
         {error && <p className="text-danger">{error}</p>}
